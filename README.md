@@ -22,5 +22,5 @@ set the directory to the one which contains the extracted files
 
 ## Sample Output
 
-![Page](https://i.imgur.com/a/27qvn)
+![Page](https://i.imgur.com/RvMAGic.png)
 
