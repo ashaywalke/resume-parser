@@ -96,6 +96,7 @@ nontechskills = set(nontechskills)
 print('\n')
 print("Following are his/her Non Technical Skills")
 print(nontechskills)
+print('\n \n')
 skill = list(skill)
 for i in range(len(skill)):
     print(skill[i])
