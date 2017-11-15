@@ -22,6 +22,6 @@ set the directory to the one which contains the extracted files
 
 ## Sample Output
 
-![1st Page](https://ibb.co/fHSf8R)
-![2nd Page](https://ibb.co/cCQp2m)
+![Page](https://imgur.com/a/27qvn)
+![Page](https://ibb.co/cCQp2m)
 
