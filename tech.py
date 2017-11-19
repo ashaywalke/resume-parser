@@ -1,5 +1,9 @@
 import csv
 import re
+import spacy
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 from cStringIO import StringIO
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
@@ -32,8 +36,13 @@ def convert(fname, pages=None):
     return text
 #Function to extract names from the string, generally in a resume the name is in the first 2 charachters of the string
 def extract_name(string):
-    spitted = string.split()
-    print(' '.join(spitted[:2]))
+    r1 = unicode(string)
+    nlp = spacy.load('en')
+    doc = nlp(r1)
+    for ent in doc.ents:
+        if(ent.label_ == 'PERSON'):
+            print(ent.text)
+            break
 #Function to extract Phone Numbers from string using regular expressions
 def extract_phone_numbers(string):
     r = re.compile(r'(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})')
@@ -45,6 +54,7 @@ def extract_email_addresses(string):
     return r.findall(string)
 #Converting pdf to string
 resume_string = convert("/home/ashay/cvscan/data/sample/cv3.pdf")
+resume_string1 = resume_string
 #Removing commas in the resume for an effecient check
 resume_string = resume_string.replace(',','')
 #Converting all the charachters in lower case
@@ -68,7 +78,8 @@ with open('technicalskills.csv', 'rb') as f:
 s = set(your_list[0])
 skills = []
 print('\n')
-extract_name(resume_string)
+#Extracting name using spacy
+extract_name(resume_string1)
 print('\n')
 print('Phone Number is')
 print(extract_phone_numbers(resume_string))
