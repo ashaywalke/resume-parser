@@ -34,7 +34,7 @@ def convert(fname, pages=None):
     text = output.getvalue()
     output.close
     return text
-#Function to extract names from the string, generally in a resume the name is in the first 2 charachters of the string
+#Function to extract names from the string, using spacy
 def extract_name(string):
     r1 = unicode(string)
     nlp = spacy.load('en')
