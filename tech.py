@@ -37,7 +37,7 @@ def convert(fname, pages=None):
 #Function to extract names from the string, using spacy
 def extract_name(string):
     r1 = unicode(string)
-    nlp = spacy.load('en')
+    nlp = spacy.load('xx')
     doc = nlp(r1)
     for ent in doc.ents:
         if(ent.label_ == 'PERSON'):
@@ -53,7 +53,7 @@ def extract_email_addresses(string):
     r = re.compile(r'[\w\.-]+@[\w\.-]+')
     return r.findall(string)
 #Converting pdf to string
-resume_string = convert("/home/ashay/cvscan/data/sample/cv3.pdf")
+resume_string = convert("address of resume here")
 resume_string1 = resume_string
 #Removing commas in the resume for an effecient check
 resume_string = resume_string.replace(',','')
