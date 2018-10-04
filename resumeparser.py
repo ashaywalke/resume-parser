@@ -3,6 +3,7 @@ import re
 import spacy
 import sys
 reload(sys)
+import pandas as pd
 sys.setdefaultencoding('utf8')
 from cStringIO import StringIO
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
